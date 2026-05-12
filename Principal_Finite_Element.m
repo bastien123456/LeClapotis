@@ -1,9 +1,9 @@
-fileName = 'HC_Rounded_F10';         %File name for Matlab to read correctly
-Path = 'Studies\HC_RoundedCups\'; %Path of the file
+fileName = 'VC_F50';         %File name for Matlab to read correctly
+Path = 'Studies\VerticalCylinder\'; %Path of the file
 gmshVersion = '2.2';        %Version of gmsh used to mesh the geometry
-PointingDirFS = 'y';                    %Pointing direction of the normal vector to the free surface (exemple : 'z' : normal vector pointing in the z direction in gmsh)
-ShowTank = 'yes';                       %If we want to plot the tank surfaces 'yes' and if we don't want 'no'
-n = 3;                                 %Number of eigen vectors to plot (except the first because it's null)
+PointingDirFS = 'z';                    %Pointing direction of the normal vector to the free surface (exemple : 'z' : normal vector pointing in the z direction in gmsh)
+ShowTank = 'no';                       %If we want to plot the tank surfaces 'yes' and if we don't want 'no'
+n = 10;                                 %Number of eigen vectors to plot (except the first because it's null)
 Kvp = 30;                               %Number of eigenvalues to compute
 Freesurf_idx = 123; %Tag of the free surface points and triangles : as default = 123
 
@@ -11,7 +11,7 @@ Freesurf_idx = 123; %Tag of the free surface points and triangles : as default =
 
 g = 9.81; %Earth gravitationnal constant
 Lateral_idx = 50; %Tag of the free surface points and triangles : as default = 50
-ScaleFactor = 1000;
+ScaleFactor = 1;
 
 if (strcmp(gmshVersion,'2.2') == 1)
     [Nbpt,Nbtri,Coorneu,Refneu,Numtri,Reftri,Numtre,Nbtre]=lecture_mesh([Path,fileName,'.msh'],Freesurf_idx,Lateral_idx);

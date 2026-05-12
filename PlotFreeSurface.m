@@ -50,7 +50,10 @@ figure(n+1)
 V_full(idx_s) = Vs(:, n);
 V_full = V_full/max(abs(V_full)); %On normalise l'amplitude
 V_full = V_full * max(abs(Coorneu(idx_s)))/4;
-V_full(idx_s) = V_full(idx_s) + Coorneu(idx_s,plt_z_idx);
+
+if strcmp(ShowTank,'yes')
+    V_full(idx_s) = V_full(idx_s) + Coorneu(idx_s,plt_z_idx);
+end
 
 %On affiche le mode propre
 trimesh(Numtri(idx_tri_surf, :), Coorneu(:, plt_x_idx), Coorneu(:, plt_y_idx), V_full);
@@ -58,7 +61,7 @@ xlabel(xl); ylabel(yl); zlabel('Velocity Potential Normalized');
 axis on;
 axis equal;
 ax = gca; ax.XAxisLocation = 'origin';
-title(['Mode n°', num2str(n), ' ||| Frequency : ',num2str(omega(n)),'Hz']);
+title(['Mode n°', num2str(n-1), ' ||| Frequency : ',num2str(omega(n)),'Hz']);
 colorbar;
 view(-45, 30);
 hold on;
