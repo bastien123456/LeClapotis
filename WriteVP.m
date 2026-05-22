@@ -6,4 +6,4 @@ g = 9.81;
 Omega = sqrt(diag(D)*g) / (2 * pi);
 
 %On écrit les valeurs propres dans un fichier csv
-writematrix(real(Omega),[Path,'frequencies_',fileName,'.csv'], WriteMode='overwrite');
+writematrix(real(Omega),[Path,'freq_',fileName,'.csv'], WriteMode='overwrite');
